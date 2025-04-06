@@ -5,6 +5,8 @@ public class NumberProb {
 		int n = 10120;
 		System.out.println(evenlyDivides(n));
 		System.out.println(reverseDigits(n));
+        System.out.println(isPalindrome(n));
+        System.out.println(lcmAndGcd(12, 15)[0]+" "+lcmAndGcd(12, 15)[1]);
 	}
 	static int evenlyDivides(int n) {
         int count=0;
@@ -36,5 +38,38 @@ public class NumberProb {
         return revnum;
         // Code here
     }
-	
+    // You are given an integer n. Your task is to determine whether it is a palindrome.
+    static boolean isPalindrome(int n) {
+        // Code here
+        int ognum=n;
+        int revnum=0;
+        while(n>0){
+            int digit=n%10;
+           revnum= revnum*10+digit;
+           n=n/10;
+            
+        }
+        
+            return ognum==revnum;
+    }
+    // Given two integers a and b, find their LCM and GCD.
+    
+    static int[] lcmAndGcd(int a, int b) {
+        // code here
+        int gcd=computeGcd(a,b);
+        int lcm= Math.abs((a*b)/gcd);
+        return new int[]{lcm,gcd};
+    }
+        
+       static int computeGcd(int a,int b){
+        while(b>0){
+            int temp=b;
+            b=a%b;
+            a=temp;
+        }
+        return Math.abs(a);
+       }
+    
 }
+	
+
